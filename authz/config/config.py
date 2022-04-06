@@ -12,4 +12,10 @@ class Config:
     ######################### Database Configuration #########################
     SQLALCHEMY_DATABASE_URI = environ.get("TOYBOY_AUTHZ_DATABASE_URI",None)
     SQLALCHEMY_TRACK_MODIFICATIONS = DEBUG
+       
+    ########################### User Configuration ###########################
+    USER_DEFAULT_EXPIRES_TIME = int(environ.get("TOYBOX_AUTHZ_USER_DEFAULT_EXPIRES_TIME","365"))
+    USER_DEFAULT_ROLE = environ.get ("TOYBOX_AUTHZ_USER_DEFAULT_ROLE", "member")
+    USER_DEFAULT_STATUS = int(environ.get ("TOYBOX_AUTHZ_USER_DEFAULT_STATUS","0"))
+
     
