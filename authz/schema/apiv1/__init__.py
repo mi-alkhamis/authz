@@ -1,0 +1,1 @@
+from authz.schema import UserSchema
