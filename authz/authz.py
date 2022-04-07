@@ -20,7 +20,7 @@ def create_app():
     app = Flask(__name__)
     app.config.from_object(Config) # Load Config from environments variables
     db.init_app(app) # init SQLAlchemy Database object
-    mg.init_app(app,db)
-    ma.init_app(app)
+    mg.init_app(app,db) # init  database management and migrate object 
+    ma.init_app(app)  # init marshmallow object
     app.register_blueprint(apiv1_bp)
     return app
