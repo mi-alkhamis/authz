@@ -3,8 +3,12 @@ from flask import current_app
 
 DEBUG_MSG_CODES = {
     "100":"OK",
-    "101":"Unsupported media type",
-    "102": "Database error"
+    "101":"Unsupported Media Type",
+    "102":"Database Error",
+    "103":"Resource Not Found",
+    "104":"Request Validation Failed",
+    "105":"Empty Fields",
+    "106":"Resource Conflict"
     
 }
 
