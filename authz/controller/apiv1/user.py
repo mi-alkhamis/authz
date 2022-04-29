@@ -1,13 +1,14 @@
-from authz.util import jsonify, now
 from authz.authz import db
-from authz.schema.apiv1 import UserSchema
+from authz.decorator.apiv1 import auth_required
 from authz.model import User
+from authz.schema.apiv1 import UserSchema
+from authz.util import jsonify, now
 from flask import request
 
 
 class UserController:
+    @auth_required
     def get_user_list():
-
         try:
             users = User.query.all()  # Query users from  db
         except:
@@ -15,6 +16,7 @@ class UserController:
         users_schema = UserSchema(many=True)  # Create user list serialization object
         return jsonify({"Users": users_schema.dump(users)})  # Returm list of users
 
+    @auth_required
     def get_user(user_id):
         try:
             user = User.query.get(user_id)  # Return a user
@@ -26,7 +28,6 @@ class UserController:
         return jsonify({"User": user_schema.dump(user)})  # Return a user
 
     def create_user():
-
         user_schema = UserSchema(only=["username", "password"])
         try:
             data = user_schema.load(request.get_json())  # Validate User Data
@@ -54,6 +55,7 @@ class UserController:
             {"User": user_schema.dump(user)}, status=201
         )  # Return a new user
 
+    @auth_required
     def update_user(user_id):
         user_schema = UserSchema(only=["password"])
 
@@ -81,6 +83,7 @@ class UserController:
         user_schema = UserSchema()
         return jsonify({"user": user_schema.dump(user)})
 
+    @auth_required
     def delete_user(user_id):
         try:
             user = User.query.get(user_id)  # Select user
