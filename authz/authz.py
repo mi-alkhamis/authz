@@ -20,6 +20,7 @@ from authz import resource  # must be located here, after apiv1.
 
 
 def create_app():
+    print("run")
     app = Flask(__name__)
     app.config.from_object(Config)  # Load Config from environments variables.
     app.before_request_funcs[None].append(
