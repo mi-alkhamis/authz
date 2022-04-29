@@ -5,7 +5,8 @@ from authz.model import User
 from flask import request
 from jwt import encode, decode
 from authz.config import Config
-from datetime import timedelta, datetime
+from datetime import datetime
+from time import time
 
 
 class AuthTokenController:
@@ -34,6 +35,7 @@ class AuthTokenController:
             if user.status != 3:
                 return jsonify(status=403, code=109)  # user has not desired status
             current_datetime = now()
+            current_time = time()
             try:
                 user_jwt_token = encode(
                     {
@@ -44,9 +46,8 @@ class AuthTokenController:
                             "expires_at": datetime.isoformat(user.expires_at),
                         },
                         "sub": user.id,
-                        "nbf": current_datetime,
-                        "exp": current_datetime
-                        + timedelta(seconds=Config.USER_DEFAULT_EXPIRES_TIME),
+                        "nbf": current_time,
+                        "exp": current_time + Config.USER_DEFAULT_EXPIRES_TIME,
                     },
                     Config.SECRET_KEY,
                     Config.JWT_TOKEN_DEFAULT_ALGORITHM,
