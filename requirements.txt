@@ -22,7 +22,7 @@ platformdirs==2.5.1
 pluggy==1.0.0
 py==1.11.0
 pycparser==2.21
-PyJWT==2.3.0
+PyJWT==2.4.0
 PyMySQL==1.0.2
 pyparsing==3.0.7
 python-dotenv==0.20.0
