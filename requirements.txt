@@ -2,7 +2,7 @@ alembic==1.7.7
 aniso8601==9.0.1
 cffi==1.15.0
 click==8.1.2
-cryptography==36.0.2
+cryptography==39.0.1
 distlib==0.3.4
 filelock==3.6.0
 Flask==2.1.1
