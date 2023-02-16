@@ -34,4 +34,4 @@ toml==0.10.2
 tox==3.25.0
 virtualenv==20.14.1
 watchdog==2.1.7
-Werkzeug==2.1.1
+Werkzeug==2.2.3
