@@ -32,6 +32,6 @@ six==1.16.0
 SQLAlchemy==1.4.34
 toml==0.10.2
 tox==3.25.0
-virtualenv==20.14.1
+virtualenv==20.26.6
 watchdog==2.1.7
 Werkzeug==3.0.6
