@@ -5,7 +5,7 @@ click==8.1.2
 cryptography==36.0.2
 distlib==0.3.4
 filelock==3.6.0
-Flask==2.1.1
+Flask==2.3.2
 flask-marshmallow==0.14.0
 Flask-Migrate==3.1.0
 Flask-RESTful==0.3.9
